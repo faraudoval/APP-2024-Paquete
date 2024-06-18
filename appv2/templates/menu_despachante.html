@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Menú Despachante</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+</head>
+    <style>
+        body {
+            background: url('/static/img/cajas.jpg');
+            background-size: cover;
+            text-align: center;
+            padding-top: 50px;
+        }
+        .bienvenida-container {
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 30px;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+    
+    </style>
+    <div class="container">
+        <h1 class="mt-5">Menú del Despachante</h1>
+        <p>Operando en la sucursal: {{ sucursal.id }} - {{ sucursal.provincia }} - {{ sucursal.localidad }}</p>
+        <div class="list-group">
+            <a href="{{ url_for('registrar_paquete') }}" class="list-group-item list-group-item-action">Registrar Paquete</a>
+            <a href="{{ url_for('seleccionar_sucursal') }}"class="list-group-item list-group-item-action">Salida de un Transporte</a>
+            <a href="{{ url_for('registrar_llegada') }}"class="list-group-item list-group-item-action">Llegada de transporte</a>
+        </div>
+    </div>
+
+</html>

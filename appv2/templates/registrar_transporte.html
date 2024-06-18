@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registrar Transporte</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+</head>
+<body>
+    <style>
+        body {
+            background: url('/static/img/transporte.jpg');
+            background-size: cover;
+            text-align: center;
+            color: purple;
+            padding-top: 50px;
+        }
+        
+
+    </style>
+    <div class="container">
+        <h1 class="mt-5">Registrar Transporte</h1>
+        <form method="POST">
+            <input type="hidden" name="sucursal_destino_id" value="{{ sucursal_destino_id }}">
+            <div class="form-group">
+                <label for="paquetes">Seleccionar Paquetes:</label>
+                {% if paquetes %}
+                    <ul>
+                        {% for paquete in paquetes %}
+                            <li>
+                                <input type="checkbox" name="paquetes" value="{{ paquete.id }}">
+                                Envío: {{ paquete.numeroenvio }}, Destinatario: {{ paquete.nomdestinatario }}, Dirección: {{ paquete.dirdestinatario }}
+                            </li>
+                        {% endfor %}
+                    </ul>
+                {% else %}
+                    <p>No hay paquetes disponibles para el transporte.</p>
+                {% endif %}
+            </div>
+            <button type="submit" class="btn btn-primary">Registrar Transporte</button>
+        </form>
+    </div>
+</body>
+</html>

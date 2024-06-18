@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registrar Llegada</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+</head>
+<body>
+    <style>
+        body {
+            background: url('/static/img/llegada.jpg');
+            background-size: cover;
+            text-align: center;
+            padding-top: 50px;
+        }
+        .registrar-container {
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 30px;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+    </style>
+    <div class="registrar-container">
+        <h1 class="mt-5">Seleccionar Transporte</h1>
+        <form method="POST">
+            <div class="form-group">
+                <label for="transporte">Transporte:</label>
+                <select name="transporte" class="form-control">
+                    {% for transporte in transportes %}
+                        <option value="{{ transporte.id }}"> {{ transporte.numerotransporte }} - {{ transporte.fechahorasalida }}  </option>
+                    {% endfor %}
+                </select>
+            </div>
+            <button type="submit" class="btn btn-primary">Seleccionar</button>
+        </form>
+    </div>
+</body>
+</html>
